@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<dom-module id="my-polymer-app">
+<dom-module id="icon-toggle">
   <template>
     <style>
       :host {
@@ -15,18 +15,18 @@
      * @customElement
      * @polymer
      */
-    class MyPolymerApp extends Polymer.Element {
-      static get is() { return 'my-polymer-app'; }
+    class IconToggle extends Polymer.Element {
+      static get is() { return 'icon-toggle'; }
       static get properties() {
         return {
           prop1: {
             type: String,
-            value: 'my-polymer-app'
+            value: 'icon-toggle'
           }
         };
       }
     }
 
-    window.customElements.define(MyPolymerApp.is, MyPolymerApp);
+    window.customElements.define(IconToggle.is, IconToggle);
   </script>
 </dom-module>
