@@ -146,16 +146,16 @@
 
         /*
         로그인
-        */
         firebase.auth().signInWithEmailAndPassword("qudgns9@gmail.com", "@Password1").catch(function (error) {
           // 에러 처리
           var errorCode = error.code;
           var errorMessage = error.message;
         })
+        */
 
         /*
         로그아웃
-        firebase.auth().signOut();        
+        firebase.auth().signOut();
         */
 
         /*
@@ -177,6 +177,27 @@
             console.log('유저 로그아웃');
           }
         })
+
+        /*
+        google login
+        */
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+          // 구글 API 에 접근할 수 있는 액세스 토큰
+          var token = result.credential.accessToken;
+          // 로그인된 유저 정보
+          var user = result.user;
+
+          console.log(token);
+          console.log(user);
+        }).catch(function (error) {
+          // 에러 처리
+          var errorCode = error.errorCode;
+          var errorMessage = error.message;
+          var email = error.email;
+          var credential = error.credential;
+        })
+
       } catch (e) {
         console.error(e);
         loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
